@@ -1,0 +1,169 @@
+.tech-rdio{
+  display: inline-block;
+  margin: 1em;
+}
+@media (max-width:700px){
+  .tech-rdio{
+    display: block;
+  }
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+.tech-table-head th{
+  padding: 0.75em !important;
+}
+.md-button.md-fab.crud-add-btn{
+  position: fixed;
+  background-color: #0070a2;
+}
+.table-fonts{
+  font-size: 18px;
+}
+.table-fonts i {
+  color: #0070a2;
+}
+@media (max-width:768px){
+  .table-fonts{
+    font-size: 12px;
+  }
+}
+
+@media (max-width:768px){
+  table h3{
+    font-size: 14px;
+  }
+}
+.tech-dropdown-li{
+  padding-left: 1em;
+}
+.tech-dropdown-li:hover {
+  background-color: #a2e2ff;
+}
+.modal-btn{
+  background-color: #0070a2;
+  color: white;
+}
+.tech-tabs{
+  position: fixed;
+}
+.category-select{
+  width: 12em;
+}
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/*
+QUESTIONS CSS
+ */
+.questions-table{
+  table-layout:fixed
+}
+.questions-table td{
+  word-wrap: break-word;
+}
+////////////////////////////
+
+.row::before {
+  clear: both;
+  content: "";
+  display: table;
+  margin-top: -1px;
+  height: 0;
+}
+
+.cat-menu {
+  border-right: 1px solid rgba(46, 49, 57, 0.3);
+  background-color: #455a64;
+  color:white;
+}
+
+.cat-menu::after{
+  height: 100%;
+}
+
+.cat-menu > h4 {
+  margin-left: 10px;
+}
+
+.tech-side-tabs{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #455a64;
+}
+
+.tech-side-tabs li{
+   display: block;
+   padding: 0px 0 8px 16px;
+   text-decoration: none;
+   padding-top: 5px;
+   color:white;
+}
+
+.tech-side-tabs li:hover{
+  color: #03a9f4;
+}
+
+.tech-side-tabs li.current-menu-item {
+  background-color: #4CAF50;
+}
+
+.questions-info{
+  display: inline-block;;
+}
+
+.contact-column{
+    height: 550px;
+    overflow: auto;
+}
+.category-tabs{
+  padding-left: 0;
+  margin-top: -1em;
+  color: white;
+  top:0;
+  bottom:0;
+  height: 41.5em;
+  background-color: #48434d;
+  position: relative;
+  // position: absolute;
+}
+.category-tabs li{
+  list-style: none;
+}
+.category-tabs li:hover{
+  color:#53989a;
+}
+.category-tabs h3{
+  padding-left: 0.5em;
+  margin-bottom: 1em;
+}
+.tech-cat{
+  border-bottom: 1px solid white;
+}
+.questions-height{
+  height: 550px;
+  overflow: auto;
+}
+.tech-continue-btn{
+  font-size: 1.5em;
+  // background-color: #48434d;
+  // color: white;
+  border: 2px solid #48434d;
+  margin-top: 2em;
+  color: #48434d;
+}
+
+@media (max-width:768px){
+  table h3{
+    font-size: 14px;
+  }
+}

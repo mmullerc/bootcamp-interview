@@ -1,0 +1,31 @@
+<div class="questions-info">
+    <strong><h3>{{questionsAnswersCtrl.tech.name}}</h3></strong>
+</div>
+<div class="btn-group questions-radio">
+  <md-radio-group ng-model="questionsAnswersCtrl.level" ng-click="questionsAnswersCtrl.showQuestions()">
+    <md-radio-button class="tech-rdio" value="none">None</md-radio-button>
+    <md-radio-button class="tech-rdio" value="basic">Basic</md-radio-button>
+    <md-radio-button class="tech-rdio" value="intermediate">Intermediate</md-radio-button>
+    <md-radio-button class="tech-rdio" value="advanced">Advanced</md-radio-button>
+    <md-radio-button class="tech-rdio" value="expert">Expert</md-radio-button>
+  </md-radio-group>
+  <md-button ng-click="questionsAnswersCtrl.hideQuestions()" md-no-ink class="tech-hide-btn">hide</md-button>
+</div>
+ <div ng-show="questionsAnswersCtrl.show">
+<table class="table highlight table-responsive table-hover">
+     <tbody>
+       <thead>
+         <th><h4>Questions</h4></th>
+         <th><h4>Answers</h4></th>
+       </thead>
+       <tr ng-repeat="question in questionsAnswersCtrl.questions">
+         <td>
+           <strong>{{question.question}}</strong>
+         </td>
+         <td>
+           {{question.answer}}
+         </td>
+       </tr>
+     </tbody>
+   </table>
+ </div>

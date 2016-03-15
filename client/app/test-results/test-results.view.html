@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <md-content md-theme="light">
+        <div class="col-md-6">
+            <md-input-container class="material-input md-block">
+               <label>Search</label>
+               <md-icon md-font-icon="fa fa-search" ></md-icon>
+               <input ng-model="techCtrl.techName">
+             </md-input-container>
+           </div><!-- /.col-lg-6 -->
+      </md-content>
+      <table class="table highlight table-responsive table-hover table-reflow tech-table">
+            <thead class="title">
+              <tr>
+                <th>Identification</th>
+                <th>Name</th>
+                <th>Last Names</th>
+                <th>Email</th>
+                <th>Generate PDF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="test in testResultsCtrl.tests">
+                <td>{{test.identification}}</td>
+                <td>{{test.name}}</td>
+                <td>{{test.lastName}}</td>
+                <td>{{test.email}}</td>
+                <td>
+                  <a  href="#" ng-click="testResultsCtrl.generatePDF(test)"><i class="fa fa-file-pdf-o"></i></a>
+                </td>
+                <td>
+                  <a  href="#" ng-click="testResultsCtrl.delteTest(test)"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>

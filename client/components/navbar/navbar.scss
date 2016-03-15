@@ -1,0 +1,29 @@
+.custom-nav{
+  background-color: #006064;
+  font-size: 1.15em;
+  position: fixed;
+  width: 100%;
+  top:0;
+}
+.navbar-default .navbar-nav > li > a.nav-title{
+  color: white;
+}
+.navbar-default .navbar-nav > li > a:hover{
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-brand{
+  color: white;
+  font-size: 1.15em;
+}
+.navbar-default .navbar-brand a:visited{
+  color: white;
+}
+.navbar-default .navbar-brand:hover{
+  color: white;
+  text-decoration: underline;
+}
+.navbar.custom-nav{
+  border:0;
+  margin: 0;
+}

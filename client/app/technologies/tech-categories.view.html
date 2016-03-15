@@ -1,0 +1,15 @@
+<div class="container-fluid">
+ <div class="row">
+   <div class="col-sm-2 col-md-2 category-tabs">
+     <h3 class="category-tabs-title">Categories</h3>
+     <ul>
+       <li  ng-repeat="category in techTabsCtrl.categories" ui-sref="technologies.tech-list({category:category})">
+         <h4>{{category.category}}</h4>
+       </li>
+     </ul>
+   </div>
+    <div class="col-sm-10 col-md-10 questions-height">
+       <div ui-view="tech-list"></div>
+    </div>
+  </div>
+</div>

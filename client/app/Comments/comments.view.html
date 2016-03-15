@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-centered">
+      <h2>Additonal Information</h2>
+      <br>
+      <label>English Level</label>
+      <br>
+      <div class="btn-group">
+        <md-radio-group ng-model="commentsCtrl.englishLevel">
+          <md-radio-button class="tech-rdio" value="none">None</md-radio-button>
+          <md-radio-button class="tech-rdio" value="basic">Basic</md-radio-button>
+          <md-radio-button class="tech-rdio" value="intermediate">Intermediate</md-radio-button>
+          <md-radio-button class="tech-rdio" value="advanced">Advanced</md-radio-button>
+          <md-radio-button class="tech-rdio" value="expert">Native speaker</md-radio-button>
+        </md-radio-group>
+      </div>
+      <div>
+      <br>
+        <label>Technical Comment</label>
+        <textarea class="form-control tech-comment" ng-model="commentsCtrl.technicalComment" required></textarea>
+      </div>
+      <div class="row interviewee-next-btn">
+        <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
+           <md-button ng-click="commentsCtrl.finishTest()" md-no-ink class="tech-continue-btn span6">Finish</md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

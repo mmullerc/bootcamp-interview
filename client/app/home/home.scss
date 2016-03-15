@@ -1,0 +1,53 @@
+html, body
+{
+   height: 100%;
+}
+#banner h2 {
+  font-size: 4em;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 1em;
+}
+
+.hero-unit {
+  // padding-top: 19em;
+  position: absolute;
+  top: 50%;
+  margin: -25px 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background-color:none;
+}
+.home-start{
+  border: 2px solid white;
+  padding: 1em;
+  color: white;
+  font-size: 1em;
+}
+
+.home-start:hover{
+  color: white !important;
+  text-decoration: none;
+}
+
+.navbar-text {
+  margin-left: 15px;
+}
+.home {
+    z-index: 100;
+    top: 0;
+    position: absolute;
+    background-image: url("../assets/images/office.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+@media (max-height:400px) {
+  #banner h2{
+    font-size: 2em;
+  }
+}

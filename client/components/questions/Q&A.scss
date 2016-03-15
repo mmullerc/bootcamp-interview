@@ -1,0 +1,17 @@
+.questions-info h3{
+  color: #006064;
+}
+.questions-radio{
+  float: right;
+}
+@media (max-width:700px){
+  .questions-radio{
+    float: none;
+    display: block;
+  }
+}
+.tech-hide-btn{
+  color: #006064;
+  font-size: 1em;
+  display: inline-block;
+}

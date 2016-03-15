@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-centered col-xs-10 col-sm-10 col-md-10">
+      <div class="row">
+        <md-content md-theme="light">
+          <div class="col-md-6">
+              <md-input-container class="material-input md-block">
+                 <label>Search</label>
+                 <md-icon md-font-icon="fa fa-search" ></md-icon>
+                 <input ng-model="techCtrl.techName">
+               </md-input-container>
+             </div><!-- /.col-lg-6 -->
+        </md-content>
+      </div><!-- /.row -->
+      <table class="table highlight table-responsive table-hover table-reflow tech-table">
+            <div class="pull-right">
+              <md-button ng-click="techCtrl.addNew()" class="md-fab crud-add-btn md-hue-2" aria-label="Profile">
+                 <md-icon md-svg-src="assets/images/add.svg"></md-icon>
+              </md-button>
+            </div>
+            <thead class="tech-table-head">
+              <tr>
+                <th><h3>Technologies</h3></th>
+                <th><h3>Category</h3></th>
+                <th><h3>Q & A's</h3></th>
+                <th><h3>Edit</h3></th>
+                <th><h3>Delete</h3></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-fonts" ng-repeat="tech in techCtrl.technologies | offset:(((techCtrl.currentPage-1)*techCtrl.itemsPerPage))
+              | filter:techCtrl.techName  | limitTo:techCtrl.itemsPerPage | orderBy: 'name'">
+                <td>
+                  {{tech.name}}
+                </td>
+                <td>
+                  {{tech.category.category}}
+                </td>
+                <td>
+                  <a  href="#" ui-sref="questions({technology:tech})"><i class="fa fa-plus"></i></a>
+                </td>
+                <td>
+                  <a  href="#" ng-click="techCtrl.editTech(tech)"><i class="fa fa-pencil"></i></a>
+                </td>
+                <td>
+                  <a  href="#" ng-click="techCtrl.deleteTech(tech)"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
+            <pagination total-items="techCtrl.totalItems" ng-model="techCtrl.currentPage"  page="techCtrl.currentPage"
+            class="pagination-sm" max-size="techCtrl.pages" items-per-page="techCtrl.itemsPerPage"></pagination>
+          </div>
+    </div>
+  </div>
+</div>

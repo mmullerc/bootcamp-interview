@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Please enter the interviewee's information</h2>
+    </div>
+    <div class="col-sm-6 interviewee-info-form">
+      <label>Name</label>
+      <input type="text" name="name" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.name" required/>
+
+      <label>Last Name</label>
+      <input type="text" name="last-name" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.lastName" required/>
+
+      <label>Identification number</label>
+      <input type="text" name="identification" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.id" required/>
+
+      <label>Email</label>
+      <input type="text" name="email" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.email"required/>
+
+      <label>Phone Number</label>
+      <input type="text" name="phoneNumber" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.phoneNumber"required/>
+    </div>
+
+    <div class="col-sm-6 interviewee-info-form">
+
+      <label>Place of Study</label>
+      <input type="text" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.placeOfStudy" required/>
+
+      <label>Study Level</label>
+      <input type="text" class="form-control interviewee-info-form" ng-model="intervieweeInfoCtrl.interviewee.studyLevel" required/>
+
+      <div class="row interviewee-next-btn">
+        <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
+           <md-button ng-click="intervieweeInfoCtrl.readyInfo()" md-no-ink class="tech-continue-btn span6">Continue</md-button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

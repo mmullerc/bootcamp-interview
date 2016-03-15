@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-centered col-md-10">
+      <div class="row">
+        <md-content md-theme="light">
+          <div class="col-md-6">
+              <md-input-container class="material-input md-block">
+                 <label>Search</label>
+                 <md-icon md-font-icon="fa fa-search"></md-icon>
+                 <input ng-model="categoriesCtrl.categories.category">
+               </md-input-container>
+             </div><!-- /.col-lg-6 -->
+        </md-content>
+      </div><!-- /.row -->
+      <table class="table highlight responsive-table table-hover table-reflow tech-table">
+        <thead class="tech-table-head">
+          <div class="pull-right">
+            <md-button ng-click="categoriesCtrl.addNew()" class="md-fab crud-add-btn md-hue-2" aria-label="Profile">
+               <md-icon md-svg-src="assets/images/add.svg"></md-icon>
+            </md-button>
+          </div>
+          <tr>
+            <th><h2>Categories</h2></th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-fonts" ng-repeat="category in categoriesCtrl.categories | filter:categoriesCtrl.categories.category">
+            <td>
+              {{category.category}}
+            </td>
+            <td>
+              <i ng-click="categoriesCtrl.updateCategory(category)"class="fa fa-pencil"></i>
+            </td>
+            <td>
+              <i ng-click="categoriesCtrl.deleteCategory(category)" class="fa fa-trash"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

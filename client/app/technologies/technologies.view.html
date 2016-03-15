@@ -1,0 +1,20 @@
+<h3>{{techCtrl.category.category}}
+  - Technologies</h3>
+<div class="row">
+</div>
+<md-content md-theme="light">
+  <div class="col-md-6">
+    <md-input-container class="material-input md-block">
+      <label>Search</label>
+      <md-icon md-font-icon="fa fa-search"></md-icon>
+      <input ng-model="techCtrl.techName">
+    </md-input-container>
+  </div>
+  <!-- /.col-lg-6 -->
+</md-content>
+  <div class="list-group-item" ng-repeat="tech in techCtrl.technologies | filter:techCtrl.techName">
+    <questions-and-answers technology="tech"></questions-and-answers>
+  </div>
+  <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
+    <md-button ng-click='techCtrl.ContinueTest()' md-no-ink class="tech-continue-btn">Continue</md-button>
+  </div>

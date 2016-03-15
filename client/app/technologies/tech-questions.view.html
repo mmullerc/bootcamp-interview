@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-centered col-xs-10 col-sm-10 col-md-10">
+        <h1>{{questionsCtrl.technology.name}}</h1>
+        <hr>
+        <div class="pull-right">
+          <md-button ng-click="questionsCtrl.addNew()" class="md-fab crud-add-btn md-hue-2" aria-label="Profile">
+             <md-icon md-svg-src="assets/images/add.svg"></md-icon>
+          </md-button>
+        </div>
+        <table class="questions-table table highlight table-responsive table-hover table-reflow tech-table">
+              <thead class="tech-table-head">
+                <tr>
+                  <th><h3>Levels</h3></th>
+                  <th><h3>Question</h3></th>
+                  <th><h3>Answer</h3></th>
+                  <th><h3>Delete</h3></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-fonts" ng-repeat="question in questionsCtrl.technology.questions | offset:(((questionsCtrl.currentPage-1)*questionsCtrl.itemsPerPage))
+                | filter:questionsCtrl.level  | limitTo:questionsCtrl.itemsPerPage | orderBy: 'name'">
+                  <td>
+                    {{question.level}}
+                  </td>
+                  <td>
+                    {{question.question}}
+                  </td>
+                  <td>
+                    {{question.answer}}
+                  </td>
+                  <td>
+                    <a ng-click="questionsCtrl.deleteQuestion(question)"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
+            <pagination total-items="questionsCtrl.totalItems" ng-model="questionsCtrl.currentPage"  page="questionsCtrl.currentPage"
+            class="pagination-sm" max-size="questionsCtrl.pages" items-per-page="questionsCtrl.itemsPerPage"></pagination>
+          </div>
+      </div><!-- /.row -->
+    </div>
+  </div>
