@@ -6,7 +6,7 @@
             <md-input-container class="material-input md-block">
                <label>Search</label>
                <md-icon md-font-icon="fa fa-search" ></md-icon>
-               <input ng-model="techCtrl.techName">
+               <input ng-model="testResultsCtrl.techName">
              </md-input-container>
            </div><!-- /.col-lg-6 -->
       </md-content>
@@ -21,7 +21,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="test in testResultsCtrl.tests">
+              <tr ng-repeat="test in testResultsCtrl.tests | filter: testResultsCtrl.techName | offset:(((testResultsCtrl.currentPage-1)*testResultsCtrl.itemsPerPage))
+               | limitTo:testResultsCtrl.itemsPerPage | orderBy: 'name'">
                 <td>{{test.identification}}</td>
                 <td>{{test.name}}</td>
                 <td>{{test.lastName}}</td>
@@ -35,6 +36,10 @@
               </tr>
             </tbody>
           </table>
+        <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
+          <pagination total-items="testResultsCtrl.totalItems" ng-model="testResultsCtrl.currentPage"  page="testResultsCtrl.currentPage"
+          class="pagination-sm" max-size="testResultsCtrl.pages" items-per-page="testResultsCtrl.itemsPerPage"></pagination>
+        </div>
     </div>
   </div>
 </div>

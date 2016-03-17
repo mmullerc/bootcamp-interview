@@ -10,12 +10,11 @@
 
       vm.finishTest = function(){
 
-        console.log('hola');
-
         if (ValidationService.checkEnglishLevel(vm.englishLevel)) {
 
           InterviewService.finishTest(vm.englishLevel, vm.technicalComment).then(function(results){
             console.log(results);
+            $state.go('home');
           }).catch(function(err){
             console.log(err);
           });

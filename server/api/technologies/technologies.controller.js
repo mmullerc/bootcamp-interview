@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 module.exports.getTechnologies = function(req, res){
 
   Technology.find()
+  .sort({name: 'ascending'})
   .populate('category')
   .exec()
   .then(function(results){
@@ -18,6 +19,7 @@ module.exports.getTechnologies = function(req, res){
 module.exports.getTechnologiesByCategory = function(req, res){
 
   Technology.find({'category' : req.body.id})
+  .sort({name: 'ascending'})
   .populate('category')
   .exec()
   .then(function(results){

@@ -25,15 +25,15 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="interviewAppApp">
+  <body ng-app="interviewAppApp" ng-controller="MainController as mainCtrl">
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <navbar></navbar>
-    <div class="ui-view-height" ui-view=""></div>
-    <footer></footer>
+    <navbar ng-show="mainCtrl.showNav"></navbar>
+      <div class="ui-view-height" ui-view=""></div>
+    <footer ng-show="mainCtrl.showFooter"></footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -78,17 +78,9 @@
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="app/admin/admin.module.js"></script>
-      <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
       <script src="app/Comments/comments.controller.js"></script>
       <script src="app/Comments/comments.main.js"></script>
-      <script src="app/account/account.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
-      <script src="app/account/settings/settings.controller.js"></script>
-      <script src="app/account/signup/signup.controller.js"></script>
-      <script src="app/admin/admin.controller.js"></script>
-      <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
       <script src="app/categories/categories.controller.js"></script>
       <script src="app/categories/categories.main.js"></script>
@@ -96,6 +88,9 @@
       <script src="app/home/home.js"></script>
       <script src="app/interviewee-info/interviewee-info.controller.js"></script>
       <script src="app/interviewee-info/interviewee-info.main.js"></script>
+      <script src="app/login/login.controller.js"></script>
+      <script src="app/login/login.main.js"></script>
+      <script src="app/main.controller.js"></script>
       <script src="app/results/results.controller.js"></script>
       <script src="app/results/results.main.js"></script>
       <script src="app/technologies/tech-questions.controller.js"></script>
@@ -104,10 +99,8 @@
       <script src="app/technologies/technologies.main.js"></script>
       <script src="app/test-results/test-results.controller.js"></script>
       <script src="app/test-results/test-results.main.js"></script>
-      <script src="components/auth/auth.service.js"></script>
-      <script src="components/auth/interceptor.service.js"></script>
-      <script src="components/auth/router.decorator.js"></script>
-      <script src="components/auth/user.service.js"></script>
+      <script src="app/users/users.controller.js"></script>
+      <script src="app/users/users.main.js"></script>
       <script src="components/categories-modal/categories.controller.js"></script>
       <script src="components/footer/footer.directive.js"></script>
       <script src="components/modal/modal.service.js"></script>
@@ -116,13 +109,16 @@
       <script src="components/navbar/navbar.directive.js"></script>
       <script src="components/questions-modal/questions-modal.controller.js"></script>
       <script src="components/questions/questionsAndAnswers.directive.js"></script>
+      <script src="components/services/auth.service.js"></script>
       <script src="components/services/categories.service.js"></script>
       <script src="components/services/interview.service.js"></script>
       <script src="components/services/technologies.service.js"></script>
       <script src="components/services/test-results.service.js"></script>
+      <script src="components/services/users.service.js"></script>
       <script src="components/services/validation-service.js"></script>
       <script src="components/socket/socket.service.js"></script>
       <script src="components/tech-modal/tech-modal.controller.js"></script>
+      <script src="components/users-modal/users-modal.controller.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->

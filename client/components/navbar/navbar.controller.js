@@ -1,21 +1,21 @@
+(function(){
+
 'use strict';
-
-class NavbarController {
-  //start-non-standard
-  menu = [{
-    'title': 'Home',
-    'state': 'main'
-  }];
-
-  isCollapsed = true;
-  //end-non-standard
-
-  constructor(Auth) {
-    this.isLoggedIn = Auth.isLoggedIn;
-    this.isAdmin = Auth.isAdmin;
-    this.getCurrentUser = Auth.getCurrentUser;
-  }
-}
 
 angular.module('interviewAppApp')
   .controller('NavbarController', NavbarController);
+
+  function NavbarController(auth,$rootScope, $state){
+
+    var vm = this;
+
+    vm.isLoggedIn = auth.isLoggedIn();
+    
+    vm.logOut = function(){
+      auth.logout();
+      $rootScope.$broadcast('loggedOut');
+      $state.go('login');
+    }
+  }
+
+})();

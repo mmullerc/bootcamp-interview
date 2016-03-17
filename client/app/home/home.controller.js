@@ -4,7 +4,7 @@
     .module('interviewAppApp')
     .controller('HomeController', HomeController);
 
-    function HomeController($state){
+    function HomeController($state, auth){
 
       var vm = this;
 

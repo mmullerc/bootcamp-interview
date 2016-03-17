@@ -2,12 +2,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 $fa-font-path: "../bower_components/font-awesome/fonts";
 @import '../bower_components/font-awesome/scss/font-awesome';
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 /**
  * App-wide Styles
  */
 html, body {
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 .browserupgrade {
   margin: 0.2em 0;
@@ -22,14 +23,15 @@ html, body {
 
 // Component styles are injected through grunt
 // injector
-@import 'admin/admin';
 @import 'categories/categories';
 @import 'Comments/comments';
 @import 'home/home';
 @import 'interviewee-info/interviewee-info';
+@import 'login/login';
 @import 'results/results';
 @import 'technologies/technologies';
 @import 'test-results/test-results';
+@import 'users/users';
 @import '../components/footer/footer';
 @import '../components/modal/modal';
 @import '../components/navbar/navbar';

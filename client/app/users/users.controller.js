@@ -2,7 +2,7 @@
 (function() {
 
 angular.module('interviewAppApp')
-  .controller('CategoriesController', CategoriesController)
+  .controller('UsersController', UsersController)
   .filter('offset', function() {
     return function (input, start) {
   		if (input) {
@@ -22,20 +22,16 @@ angular.module('interviewAppApp')
    * @param $rootScope angularjs rootScope
    * @param Service SweetAlert Its a third party service that provides custom alerts
    */
-  function CategoriesController($state, $modal, CategoryService, $rootScope, SweetAlert, $filter){
+  function UsersController($state, $modal, CategoryService, $rootScope, SweetAlert, $filter, UserService){
 
     var vm = this;
-    listCategories();
+    listUsers();
     vm.currentPage = 1;
     vm.itemsPerPage = 5;
 
-    /**
-     * @name listCategories
-     * @description Lists the categories provided by the CategoryService
-     */
-    function listCategories(){
-      CategoryService.getCategories().then(function(results){
-        vm.categories = results.data;
+    function listUsers(){
+      UserService.getUsers().then(function(results){
+        vm.users = results.data;
         setPagination()
       }).catch(function(err){
         SweetAlert.swal({title: 'Error!',
@@ -51,7 +47,7 @@ angular.module('interviewAppApp')
      * [setPagination description]
      */
     function setPagination(){
-      vm.totalItems = vm.categories.length;
+      vm.totalItems = vm.users.length;
       vm.pages = Math.ceil(vm.totalItems / vm.itemsPerPage);
     }
 
@@ -60,14 +56,14 @@ angular.module('interviewAppApp')
     * @description Instantiates a modal so we can add a new category
     */
     vm.addNew = function () {
-     var cat = ''
+     var usr = ''
      var modalInstance = $modal.open({
-       templateUrl: 'components/categories-modal/categories.tpl.html',
-       controller: 'CategoriesModalController',
-       controllerAs: 'categoryModalCtrl',
+       templateUrl: 'components/users-modal/users-modal.tpl.html',
+       controller: 'UsersModalController',
+       controllerAs: 'usersModalCtrl',
        resolve : { // This fires up before controller loads and templates rendered
-          categoryParam : function() {
-             return cat;
+          userParam : function() {
+             return usr;
           }
         }
      });
@@ -77,17 +73,17 @@ angular.module('interviewAppApp')
      * @description Instantiates a modal so we can update a category
      * @param  Category cat Its the category we want to update
      */
-    vm.updateCategory = function (cat) {
-     var modalInstance = $modal.open({
-       templateUrl: 'components/categories-modal/categories.tpl.html',
-       controller: 'CategoriesModalController',
-       controllerAs: 'categoryModalCtrl',
-       resolve : { // This fires up before controller loads and templates rendered
-          categoryParam : function() {
-             return cat;
-          }
-        }
-     });
+    vm.updateUser = function (cat) {
+      var modalInstance = $modal.open({
+        templateUrl: 'components/users-modal/users.tpl.html',
+        controller: 'UsersModalController',
+        controllerAs: 'usersModalCtrl',
+        resolve : { // This fires up before controller loads and templates rendered
+           userParam : function() {
+              return usr;
+           }
+         }
+      });
     }
     /**
      * @name deleteCategory
@@ -95,7 +91,7 @@ angular.module('interviewAppApp')
      * @param  Category cat Its the category that needs
      * to be deleted.
      */
-    vm.deleteCategory = function(cat){
+    vm.deleteUser = function(user){
 
       SweetAlert.swal({title: 'Are you sure you want to delete this item?',
       type: 'warning',
@@ -107,9 +103,8 @@ angular.module('interviewAppApp')
       closeOnCancel: true },
       function(isConfirm){
         if (isConfirm) {
-          CategoryService.deleteCategory(cat).then(function(results){
-            listCategories();
-            console.log(results);
+          UserService.deleteUser(user).then(function(results){
+            listUsers();
           }).catch(function(err){
             console.log(err);
           });
@@ -123,8 +118,8 @@ angular.module('interviewAppApp')
      * the main category controller
      * @param  Event 'addedCategory' - Its an event fired by the modal controller
      */
-    $rootScope.$on('addedCategory', function(){
-      listCategories();
+    $rootScope.$on('addedUser', function(){
+      listUsers();
     });
     /**
      * $on when a category is updated by the
@@ -132,8 +127,8 @@ angular.module('interviewAppApp')
      * the main category controller
      * @param  Event 'updatedCategory' - Its an event fired by the modal controller
      */
-    $rootScope.$on('updatedCategory', function(){
-      listCategories();
+    $rootScope.$on('updatedUser', function(){
+      listUsers();
     });
   }
 })();

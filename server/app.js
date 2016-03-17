@@ -3,12 +3,16 @@
  */
 
 'use strict';
-
+require('dotenv').load();
 import express from 'express';
 import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import config from './config/environment';
 import http from 'http';
+var passport = require('passport');
+
+require('./api/users/users.model');
+require('./config/passport');
 
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -18,7 +22,7 @@ mongoose.connection.on('error', function(err) {
 });
 
 // Populate databases with sample data
-if (config.seedDB) { require('./config/seed'); }
+// if (config.seedDB) { require('./config/seed'); }
 
 // Setup server
 var app = express();
@@ -30,6 +34,9 @@ var socketio = require('socket.io')(server, {
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
+
+//Passpor initialize
+app.use(passport.initialize());
 
 // Start server
 function startServer() {

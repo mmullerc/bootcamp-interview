@@ -28,12 +28,19 @@ var TestResultSchema = new mongoose.Schema({
     type: String,
     required : true
   },
-  technicalComment : String
-  // evaluator : {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'user',
-  //   required: true
-  // }
+  technicalComment : String,
+  evaluatorName : {
+    type: String,
+    required : true
+  },
+  evaluatorLastName : {
+    type: String,
+    required : true
+  },
+  evaluatorEmail : {
+    type: String,
+    required : true
+  }
 
 });
 

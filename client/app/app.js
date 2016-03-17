@@ -1,8 +1,6 @@
 'use strict';
 
 angular.module('interviewAppApp', [
-  'interviewAppApp.auth',
-  'interviewAppApp.admin',
   'interviewAppApp.constants',
   'ngCookies',
   'ngResource',

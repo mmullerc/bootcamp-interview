@@ -5,7 +5,7 @@
     .module('interviewAppApp')
     .factory('InterviewService',InterviewService)
 
-  function InterviewService($http) {
+  function InterviewService($http, auth) {
 
     var interviewee;
     var techSkillList = [];
@@ -26,6 +26,8 @@
 
     var finishTest = function(englishLevel, techComment){
 
+      var user = auth.currentUser();
+
       var testResults = {
         name : interviewee.name,
         lastName : interviewee.lastName,
@@ -36,7 +38,10 @@
         studyLevel : interviewee.studyLevel,
         technicalSkills : techSkillList,
         englishLevel : englishLevel,
-        technicalComment : techComment
+        technicalComment : techComment,
+        evaluatorName : user.name,
+        evaluatorLastName : user.lastName,
+        evaluatorEmail : user.email
       }
 
       return $http.post('api/testResults', testResults);

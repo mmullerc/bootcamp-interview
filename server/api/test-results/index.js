@@ -28,7 +28,7 @@ testResultRouter.route('/testResults')
   .post(function(req, res){
     testResultCtrl.createTestResults(req, res);
   });
-  
+
   testResultRouter.route('/testResults/generatePDF')
     .post(function(req, res){
       var techSkills = req.body.technicalSkills;
@@ -57,7 +57,12 @@ testResultRouter.route('/testResults')
                        '<hr>' +
                        '<h3>English Level: '+req.body.englishLevel+'</h3>' +
                        '<hr>' +
-                       '<h3>Technical Comment: '+req.body.technicalComment+'</h3>';
+                       '<h3>Technical Comment: '+req.body.technicalComment+'</h3>' +
+                       '<hr>' +
+                       '<h2 style="color:#00796b">Evaluated By: </h2>' +
+                       '<h3>'+req.body.evaluatorName + ' ' +req.body.evaluatorLastName+'</h3>' +
+                       '<h3>Email: '+ req.body.evaluatorEmail+'</h3>'
+
 
 
       var jsreport = require('jsreport');

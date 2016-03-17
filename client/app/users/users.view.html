@@ -7,7 +7,7 @@
               <md-input-container class="material-input md-block">
                  <label>Search</label>
                  <md-icon md-font-icon="fa fa-search"></md-icon>
-                 <input ng-model="categoriesCtrl.categories.category">
+                 <input ng-model="usersCtrl.email">
                </md-input-container>
              </div><!-- /.col-lg-6 -->
         </md-content>
@@ -15,34 +15,39 @@
       <table class="table highlight responsive-table table-hover table-reflow tech-table">
         <thead class="tech-table-head">
           <div class="pull-right">
-            <md-button ng-click="categoriesCtrl.addNew()" class="md-fab crud-add-btn md-hue-2" aria-label="Profile">
+            <md-button ng-click="usersCtrl.addNew()" class="md-fab crud-add-btn md-hue-2" aria-label="Profile">
                <md-icon md-svg-src="assets/images/add.svg"></md-icon>
             </md-button>
           </div>
+          <h2>Users</h2>
           <tr>
-            <th><h2>Categories</h2></th>
+            <th>email</th>
+            <th>name</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="table-fonts" ng-repeat="category in categoriesCtrl.categories | filter:categoriesCtrl.categories.category | offset:(((categoriesCtrl.currentPage-1)*categoriesCtrl.itemsPerPage))
-           | limitTo:categoriesCtrl.itemsPerPage | orderBy: 'name'">
+          <tr class="table-fonts" ng-repeat="user in usersCtrl.users | filter:usersCtrl.email | offset:(((usersCtrl.currentPage-1)*usersCtrl.itemsPerPage))
+           | limitTo:usersCtrl.itemsPerPage | orderBy: 'name'">
             <td>
-              {{category.category}}
+              {{user.email}}
             </td>
             <td>
-              <i ng-click="categoriesCtrl.updateCategory(category)"class="fa fa-pencil"></i>
+              {{user.name + ' ' + user.lastName}}
             </td>
             <td>
-              <i ng-click="categoriesCtrl.deleteCategory(category)" class="fa fa-trash"></i>
+              <i ng-click="usersCtrl.updateUser(user)"class="fa fa-pencil"></i>
+            </td>
+            <td>
+              <i ng-click="usersCtrl.deleteUser(user)" class="fa fa-trash"></i>
             </td>
           </tr>
         </tbody>
       </table>
       <div class="col-xs-offset-3 col-sm-offset-5 col-md-offset-5">
-        <pagination total-items="categoriesCtrl.totalItems" ng-model="categoriesCtrl.currentPage"  page="categoriesCtrl.currentPage"
-        class="pagination-sm" max-size="categoriesCtrl.pages" items-per-page="categoriesCtrl.itemsPerPage"></pagination>
+        <pagination total-items="usersCtrl.totalItems" ng-model="usersCtrl.currentPage"  page="usersCtrl.currentPage"
+        class="pagination-sm" max-size="usersCtrl.pages" items-per-page="usersCtrl.itemsPerPage"></pagination>
       </div>
     </div>
   </div>
